@@ -1,12 +1,7 @@
 import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
-import Image from "next/image";
 
 export default function Home() {
-  const twoBedroom: string = "";
-  const threeBedroom: string = "";
-  const selfCon: string = "";
-
   return (
     <div className="space-y-20 w-full">
       {/* Hero Section */}

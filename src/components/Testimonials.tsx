@@ -42,10 +42,6 @@ const Testimonials = () => {
     },
   ]);
 
-  const [item, setItem] = useState<number>(0);
-  const [visibleTestimonials, setVisibleTestimonials] = useState<Testimonial[]>(
-    testimonials.slice(0, 2)
-  );
   const [index, setIndex] = useState<number>(0);
   const [slidesToShow, setSlidesToShow] = useState<number>(3);
 
