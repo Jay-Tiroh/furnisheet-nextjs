@@ -78,8 +78,6 @@ const Testimonials = () => {
     };
   }, []);
 
-  console.log(visibleTestimonials);
-
   return (
     <div className="bg-light-grey p-5 w-full space-y-10">
       <h2 className="text-center text-2xl">What our Customers have to say?</h2>

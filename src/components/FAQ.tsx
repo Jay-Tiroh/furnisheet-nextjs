@@ -11,7 +11,6 @@ const FAQ = () => {
 
       if (answer) {
         answer.classList.toggle("hidden");
-        console.log(answer);
       }
       items.forEach((faq) => {
         const detail = faq.querySelector(".answer") as HTMLElement | null;

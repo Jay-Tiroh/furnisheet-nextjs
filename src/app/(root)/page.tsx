@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="space-y-20 w-full">
       {/* Hero Section */}
-      <div className="hero-section mt-5 w-full">
+      <div className="hero-section w-full">
         <div
           className="content flex flex-col items-center
       md:items-start md:justify-center md:flex-row-reverse  "
@@ -34,8 +34,11 @@ export default function Home() {
 
       {/* How It Works */}
 
-      <div className="px-10 text-very-dark-blue space-x-3 flex-col justify-evenly hidden md:flex items-start md:flex-row md:justify-between md:items-stretch  space-y-10 md:space-y-0">
-        <span className="h2 font-semibold md:text-2xl text-wrap flex  items-start py-5  md:max-w-32  text-3xl">
+      <div
+        id="how-it-works"
+        className="px-10 text-very-dark-blue space-x-3 flex-col justify-evenly flex items-start md:flex-row md:justify-between md:items-stretch  space-y-10 md:space-y-0"
+      >
+        <span className="h2 font-semibold md:text-2xl mx-auto md:mx-0 text-wrap flex  items-start py-5  md:max-w-32  text-3xl">
           How It Works
         </span>
 
@@ -288,6 +291,7 @@ export default function Home() {
       </div>
 
       {/* Packages */}
+
       <div className="packages-section flex flex-col items-center justify-center ">
         <h2 className="text-3xl font-semibold text-center">Our Packages</h2>
         <div className="packages w-full ">
@@ -327,7 +331,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Best Selling  */}
+
       <div className="p-10 space-y-10 ">
         <h2 className="font-semibold text-3xl text-center">
           Best Selling Products
@@ -370,9 +376,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="home-btn max-w-54 m-auto ">Shop All Furniture</div>
+        <div className="home-btn text-nowrap max-w-54 m-auto ">
+          Shop All Furniture
+        </div>
       </div>
+
       {/* Enjoy Rent */}
+
       <div className="bg-very-dark-blue text-light-grey pb-10 md:p-auto md:relative min-h-[22rem] overflow-hidden">
         <div className="content flex-col md:flex-row md:items-stretch  justify-center md:absolute left-20 -bottom-10 flex w-full">
           <div className="spending-img  min-h-80 overflow-hidden w-full md:w-80 md:max-w-[25rem]">
@@ -392,7 +402,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Now Available */}
+
       <div className="bg-very-dark-blue text-light-grey pb-10 md:p-10 md:relative min-h-[22rem]">
         <div className="content flex-col md:flex-row-reverse md:items-stretch  justify-center md:absolute left-20 -bottom-10 flex">
           <div className="bridge-img  min-h-80 overflow-hidden w-full md:w-80 md:max-w-[25rem]"></div>
