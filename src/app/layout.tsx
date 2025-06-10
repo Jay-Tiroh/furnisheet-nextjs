@@ -4,7 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Providers } from "./providers";
-import { MenuProvider } from "@/context/MenuContext";
+
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -45,11 +45,9 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body>
         <Providers>
-          <MenuProvider>
-            <NavBar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </MenuProvider>
+          <NavBar />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

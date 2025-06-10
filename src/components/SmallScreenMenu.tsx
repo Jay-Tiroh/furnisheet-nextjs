@@ -32,7 +32,7 @@ const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger className="cursor-pointer  ">
-              <h2 className="font-semibold text-[1rem]">Furniture How</h2>
+              <h2 className="font-semibold text-[1rem]">Furniture</h2>
             </AccordionTrigger>
             <AccordionContent>
               <div className="links text-xs flex flex-col space-y-2">

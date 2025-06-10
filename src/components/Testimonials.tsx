@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface Testimonial {
@@ -12,7 +13,7 @@ const Testimonials = () => {
   const ellipse: string = "/assets/images/ellipse.svg?url";
   const currentEllipse: string = "/assets/images/current-ellipse.svg?url";
 
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([
+  const testimonials: Testimonial[] = [
     {
       content:
         "Extremely easy! Browsed for furniture and it was in my new apartment within a week. first div",
@@ -40,7 +41,7 @@ const Testimonials = () => {
       star: 5,
       author: "Lionel Messi",
     },
-  ]);
+  ];
 
   const [index, setIndex] = useState<number>(0);
   const [slidesToShow, setSlidesToShow] = useState<number>(3);
@@ -130,19 +131,32 @@ const Testimonials = () => {
           </div>
 
           <div className="indicators flex gap-5">
-            <img
+            <Image
+              alt="ellipse"
+              width={15}
+              height={15}
+              // sizes="(max-width: 768px) 5px, 5px"
               className="indicator mt-4 cursor-pointer"
               src={index === 0 ? currentEllipse : ellipse}
             />
-            <img
+            <Image
+              alt="ellipse"
+              width={15}
+              height={15}
               className="indicator mt-4 cursor-pointer"
               src={index === 1 ? currentEllipse : ellipse}
             />
-            <img
+            <Image
+              alt="ellipse"
+              width={15}
+              height={15}
               className="indicator mt-4 cursor-pointer"
               src={index === 2 ? currentEllipse : ellipse}
             />
-            <img
+            <Image
+              alt="ellipse"
+              width={15}
+              height={15}
               className="indicator mt-4 cursor-pointer"
               src={index === 3 ? currentEllipse : ellipse}
             />

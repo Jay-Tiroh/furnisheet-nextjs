@@ -1,5 +1,7 @@
 import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
+import Image from "next/image";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function Home() {
   return (
@@ -10,9 +12,21 @@ export default function Home() {
           className="content flex flex-col items-center
       md:items-start md:justify-center md:flex-row-reverse  "
         >
-          <div className="md:w-8/12 xl:w-10/12 relative">
-            <img src="/assets/images/hero-img.png" alt="" className="w-full" />
-            <img
+          <div className="w-full md:w-8/12 xl:w-10/12 relative mb-5 ">
+            <AspectRatio ratio={16 / 11} className="min-h-[200px]">
+              {" "}
+              <Image
+                width={1200}
+                height={675}
+                sizes="(max-width: 768px) 100vw, (min-width: 769px) 66vw"
+                src="/assets/images/hero-img.png"
+                alt=""
+                className="w-full object-cover"
+              />
+            </AspectRatio>
+            <Image
+              width={120}
+              height={120}
               src="/assets/images/need-help.png"
               alt=""
               className="absolute bottom-10 right-10"
@@ -293,7 +307,9 @@ export default function Home() {
           <div className="container w-full p-5 text-center flex justify-evenly gap-5 m-auto flex-wrap md:flex-nowrap">
             {/* packages */}
             <div className="package flex flex-col justify-center ">
-              <img
+              <Image
+                width={200}
+                height={200}
                 src="/assets/images/2-bedroom.png?url"
                 alt=""
                 className="package-img"
@@ -304,7 +320,9 @@ export default function Home() {
               </span>
             </div>
             <div className="package flex flex-col justify-center ">
-              <img
+              <Image
+                width={200}
+                height={200}
                 src="/assets/images/3-bedroom.png?url"
                 alt=""
                 className="package-img"
@@ -314,7 +332,9 @@ export default function Home() {
               </span>
             </div>
             <div className="package flex flex-col justify-center ">
-              <img
+              <Image
+                width={200}
+                height={200}
                 src="/assets/images/self-con.png?url"
                 alt=""
                 className="package-img"
@@ -336,7 +356,12 @@ export default function Home() {
         <div className="container m-auto  gap-10 mb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-content-center place-items-center md:grid-flow-row ">
           {/* items */}
           <div className="item  ">
-            <img src="/assets/images/swivel-chair.png?url" alt="" />
+            <Image
+              width={200}
+              height={200}
+              src="/assets/images/swivel-chair.png?url"
+              alt=""
+            />
             <div className="name mt-1">Ergonomic And Swivel Chairs (ESC)</div>
             <div className="price">
               <span className="font-semibold subscription">N1,500/mo</span>{" "}
@@ -345,7 +370,12 @@ export default function Home() {
           </div>
 
           <div className="item ">
-            <img src="/assets/images/chair1.png?url" alt="" />
+            <Image
+              width={200}
+              height={200}
+              src="/assets/images/chair1.png?url"
+              alt=""
+            />
             <div className="name mt-1">Comfy Couch, Grey Left Extended</div>
             <div className="price">
               <span className="font-semibold subscription">N1,500/mo</span>{" "}
@@ -354,7 +384,12 @@ export default function Home() {
           </div>
 
           <div className="item ">
-            <img src="/assets/images/chair2.png?url" alt="" />
+            <Image
+              width={200}
+              height={200}
+              src="/assets/images/chair2.png?url"
+              alt=""
+            />
             <div className="name mt-1">Comfy Couch, Grey Left Extended</div>
             <div className="price">
               <span className="font-semibold subscription">N1,500/mo</span>{" "}
@@ -363,7 +398,12 @@ export default function Home() {
           </div>
 
           <div className="item">
-            <img src="/assets/images/chair3.png?url" alt="" />
+            <Image
+              src="/assets/images/chair3.png?url"
+              alt=""
+              width={200}
+              height={200}
+            />
             <div className="name mt-1">Comfy Couch, Grey Left Extended</div>
             <div className="price">
               <span className="font-semibold subscription">N1,500/mo</span>{" "}
@@ -378,11 +418,9 @@ export default function Home() {
 
       {/* Enjoy Rent */}
 
-      <div className="bg-very-dark-blue text-light-grey pb-10 md:p-auto md:relative min-h-[22rem] overflow-hidden">
-        <div className="content flex-col md:flex-row md:items-stretch  justify-center md:absolute left-20 -bottom-10 flex w-full">
-          <div className="spending-img  min-h-80 overflow-hidden w-full md:w-80 md:max-w-[25rem]">
-            h
-          </div>
+      <div className="bg-very-dark-blue text-light-grey pb-10 md:p-auto md:relative min-h-[22rem] overflow-x-clip">
+        <div className="content flex-col md:flex-row md:items-stretch  justify-center md:absolute left-20 -bottom-10 flex w-full ">
+          <div className="spending-img  min-h-80 overflow-hidden w-full md:w-80 md:max-w-[25rem]"></div>
           <div className="text-content mx-10 md:w-1/3  left-6/11 xl:left-4/9 mt-10 md:mt-0 bottom-5 flex flex-col md:justify-center">
             <h2 className="text-2xl font-medium mb-3 leading-[1.8rem] text-wrap text-center md:text-left">
               Enjoy rent-to-own flexibility
