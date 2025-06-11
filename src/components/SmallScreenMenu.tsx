@@ -8,6 +8,7 @@ import {
 import SubMenu from "./SubMenu";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import SubMenuFooter from "./SubMenuFooter";
 
 const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const [activeSubMenu, setActiveSubMenu] = useState<string>("categories");
@@ -23,8 +24,8 @@ const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
       closeMenu={closeMenu}
     />
   ) : (
-    <div className="border-b-2 shadow-md p-10 text-fake-black">
-      <div className="wrapper flex flex-col gap-5">
+    <div className="border-b-2 shadow-md text-fake-black h-full">
+      <div className="wrapper flex flex-col p-10 gap-5">
         <Accordion
           type="single"
           collapsible
@@ -38,14 +39,14 @@ const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
               <div className="links text-xs flex flex-col space-y-2">
                 <div
                   onClick={() => handleSubMenuChange("categories")}
-                  className="flex items-end justify-between  font-medium hover:text-secondary group gap-1"
+                  className="flex items-end justify-between  font-medium hover:text-secondary group gap-1 cursor-pointer"
                 >
                   <span>Categories </span>
                   <ArrowRight className="inline bg-transparent size-4 group-hover:stroke-secondary " />
                 </div>
                 <div
                   onClick={() => handleSubMenuChange("packages")}
-                  className="flex items-end justify-between font-medium hover:text-secondary group gap-1"
+                  className="flex items-end justify-between font-medium hover:text-secondary group gap-1 cursor-pointer"
                 >
                   <span>Packages </span>
                   <ArrowRight className="inline bg-transparent size-4 group-hover:stroke-secondary " />
@@ -66,6 +67,7 @@ const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
           </Link>
         </div>
       </div>
+      <SubMenuFooter />
     </div>
   );
 };

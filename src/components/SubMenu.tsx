@@ -1,6 +1,8 @@
+import { Sub } from "@radix-ui/react-dropdown-menu";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import SubMenuFooter from "./SubMenuFooter";
 
 const SubMenu = ({
   activeSubMenu,
@@ -12,11 +14,12 @@ const SubMenu = ({
   closeMenu: () => void;
 }) => {
   return (
-    <>
+    <div className=" w-full bg-white ">
       {activeSubMenu === "categories"
         ? categories({ setSubMenuIsOpen, closeMenu })
         : packages({ setSubMenuIsOpen, closeMenu })}
-    </>
+      <SubMenuFooter />
+    </div>
   );
 };
 
@@ -30,7 +33,7 @@ const categories = ({
   closeMenu: () => void;
 }) => {
   return (
-    <div className="categories  p-5 m-auto max-w-[95%]">
+    <div className="categories  p-10 m-auto ">
       <div className="sub-menu-heading">
         <ArrowLeft
           onClick={() => setSubMenuIsOpen(false)}
@@ -74,7 +77,7 @@ const packages = ({
   closeMenu: () => void;
 }) => {
   return (
-    <div className="packages p-5 m-auto max-w-[95%]">
+    <div className="packages p-10 m-auto">
       <div className="sub-menu-heading">
         <ArrowLeft
           onClick={() => setSubMenuIsOpen(false)}

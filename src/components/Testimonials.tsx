@@ -95,8 +95,8 @@ const Testimonials = () => {
           </svg>
         </span>
 
-        <div className="carousel flex justify-center items-center flex-col">
-          <div className="card-container  flex justify-center items-stretch  gap-5">
+        <div className="carousel flex justify-center-safe items-center flex-col">
+          <div className="card-container  flex justify-center-safe items-stretch  gap-5">
             {/* card */}
 
             {/* larger screens */}

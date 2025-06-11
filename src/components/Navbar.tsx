@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 import {
   DropdownMenu,
@@ -81,13 +76,26 @@ const NavBar = () => {
         }`}
       >
         {/* menu-btn */}
-
-        <span
+        {/* <span
           className="menu-btn lg:hidden cursor-pointer justify-self-start"
           onClick={toggleMenu.handleToggle}
         >
           <MenuIcon className=" size-8 stroke-fake-black hover:stroke-secondary" />
-        </span>
+        </span> */}
+
+        <DropdownMenu>
+          <DropdownMenuTrigger className="cursor-pointer">
+            <span
+              className="menu-btn lg:hidden cursor-pointer justify-self-start"
+              // onClick={toggleMenu.handleToggle}
+            >
+              <MenuIcon className=" size-8 stroke-fake-black hover:stroke-secondary" />
+            </span>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="!w-screen">
+            <Menu closeMenu={closeMenu} />
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         {/* navlinks */}
         <div className="nav-links  space-x-5 items-center text-sm  hidden lg:flex w-1/3 justify-between font-semibold">
@@ -107,7 +115,7 @@ const NavBar = () => {
           href="/"
           className="logo w-1/3 md:max-w-56 flex justify-center items-center "
         >
-          <img src={logo} alt="" />
+          <Image src={logo} width={150} height={50} alt="" />
         </Link>
         {/*  */}
 
@@ -215,7 +223,7 @@ const NavBar = () => {
       {/* collapsibles */}
 
       {/* Menu */}
-      {toggleMenu.toggle && <Menu closeMenu={closeMenu} />}
+      {/* {toggleMenu.toggle && <Menu closeMenu={closeMenu} />} */}
     </div>
   );
 };
