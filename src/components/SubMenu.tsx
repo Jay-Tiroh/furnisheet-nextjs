@@ -1,4 +1,4 @@
-import { Sub } from "@radix-ui/react-dropdown-menu";
+// Description: This component renders a submenu with categories and packages.
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
