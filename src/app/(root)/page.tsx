@@ -16,6 +16,7 @@ export default function Home() {
             <AspectRatio ratio={16 / 11} className="min-h-[200px]">
               {" "}
               <Image
+                quality={100}
                 width={1200}
                 height={675}
                 sizes="(max-width: 768px) 100vw, (min-width: 769px) 66vw"

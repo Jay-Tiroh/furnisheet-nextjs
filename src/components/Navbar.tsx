@@ -71,24 +71,15 @@ const NavBar = () => {
   return (
     <div className=" sticky top-0 z-50 bg-white w-full ">
       <div
-        className={`content flex  items-center  justify-between px-10 text-nowrap py-5   relative ${
+        className={`content flex  items-center  justify-between md:px-10 text-nowrap p-5   relative ${
           hasShadow ? "shadow-md" : "border-b-mid-grey border-b"
         }`}
       >
         {/* menu-btn */}
-        {/* <span
-          className="menu-btn lg:hidden cursor-pointer justify-self-start"
-          onClick={toggleMenu.handleToggle}
-        >
-          <MenuIcon className=" size-8 stroke-fake-black hover:stroke-secondary" />
-        </span> */}
 
         <DropdownMenu>
           <DropdownMenuTrigger className="cursor-pointer">
-            <span
-              className="menu-btn lg:hidden cursor-pointer justify-self-start"
-              // onClick={toggleMenu.handleToggle}
-            >
+            <span className="menu-btn lg:hidden cursor-pointer justify-self-start">
               <MenuIcon className=" size-8 stroke-fake-black hover:stroke-secondary" />
             </span>
           </DropdownMenuTrigger>
@@ -120,7 +111,7 @@ const NavBar = () => {
         {/*  */}
 
         {/* others */}
-        <div className="others flex justify-evenly space-x-5 items-center  md:w-1/3 md:min-w-72">
+        <div className="others hidden md:flex justify-evenly space-x-5 items-center  md:w-1/3 md:min-w-72">
           <DropdownMenu>
             <DropdownMenuTrigger className="outline-none hover:text-secondary">
               <div className=" stroke-black fill-black hover:fill-secondary hover:stroke-secondary cursor-pointer flex">
