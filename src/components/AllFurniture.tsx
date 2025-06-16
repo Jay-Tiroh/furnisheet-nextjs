@@ -122,7 +122,7 @@ const AllFurniture = () => {
 
   return (
     <div>
-      <div className="flex flex-col p-10 gap-7 header w-full bg-light-grey">
+      <div className="flex flex-col p-5 sm:p-10  gap-7 header w-full bg-light-grey">
         <h2 className=" font-semibold text-2xl">All Furniture</h2>
         <div className="ribbon flex justify-between items-center w-full">
           <span className="items text-xs font-medium  text-very-grey">
@@ -130,7 +130,7 @@ const AllFurniture = () => {
           </span>
 
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild className="mx-0 px-0  md:px-auto">
               <div className="sort-btn flex items-center gap-2 cursor-pointer">
                 <span className="text-xs font-medium text-very-grey">
                   Sort by:
