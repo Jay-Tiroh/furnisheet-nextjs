@@ -78,7 +78,7 @@ const NavBar = () => {
         {/* menu-btn */}
 
         <DropdownMenu>
-          <DropdownMenuTrigger className="cursor-pointer">
+          <DropdownMenuTrigger className="cursor-pointer border-0 outline-none focus:outline-none focus:ring-0 active:outline-none active:ring-0">
             <span className="menu-btn lg:hidden cursor-pointer justify-self-start">
               <MenuIcon className=" size-8 stroke-fake-black hover:stroke-secondary" />
             </span>

@@ -256,14 +256,14 @@
   @apply flex justify-between items-center w-full bg-mid-grey px-5 py-5 font-semibold rounded-md mb-3;
 }
 .option {
-  @apply p-3 px-10 text-xs cursor-pointer   text-nowrap;
+  @apply p-3 px-10 text-xs cursor-pointer   text-nowrap rounded-none;
 }
 
 .option:not(.selected) {
   @apply hover:text-white hover:bg-alt-grey;
 }
 .selected {
-  @apply bg-secondary text-white;
+  @apply bg-fake-black text-white;
 }
 
 .all-packages-img0 {

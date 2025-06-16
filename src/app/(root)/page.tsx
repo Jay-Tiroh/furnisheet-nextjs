@@ -2,6 +2,7 @@ import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import Button from "@/components/Button";
 
 export default function Home() {
   return (
@@ -37,7 +38,11 @@ export default function Home() {
             <div className="hero-text text-3xl  flex gap-5 justify-center mt-3 md:flex-col md:items-start md:text-5xl lg:text-7xl">
               <span>Rent,</span> <span>Furnish,</span> <span>Live.</span>
             </div>
-            <div className="home-btn ">Explore Furniture</div>
+            <Button
+              text="Explore Furniture"
+              className="home-btn"
+              href="/furniture"
+            />
           </div>
         </div>
       </div>
@@ -293,9 +298,12 @@ export default function Home() {
               N1,200/mo, and our team handles everything you’d rather not:
               delivery, assembly, & pickup.
             </p>
-            <div className="home-btn max-w-52 m-auto md:m-0 md:mb-10 xl:m-0">
-              See All Furniture
-            </div>
+
+            <Button
+              text="See All Furniture"
+              className="home-btn max-w-52 m-auto md:m-0 md:mb-10 xl:m-0"
+              href="/furniture"
+            />
           </div>
         </div>
       </div>
@@ -412,9 +420,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="home-btn text-nowrap max-w-54 m-auto ">
-          Shop All Furniture
-        </div>
+
+        <Button
+          text="Shop All Furniture"
+          className="home-btn text-nowrap max-w-54 m-auto"
+          href="/furniture"
+        />
       </div>
 
       {/* Enjoy Rent */}
@@ -430,9 +441,12 @@ export default function Home() {
               Fall in love with something? Buy it out and make it your own! All
               monthly payments go toward ownership.
             </p>
-            <div className="home-btn max-w-52 m-auto md:m-0 md:mb-10 xl:m-0">
-              See All Furniture
-            </div>
+
+            <Button
+              text="See All Furniture"
+              className="home-btn max-w-52 m-auto md:m-0 md:mb-10 xl:m-0"
+              href="/furniture"
+            />
           </div>
         </div>
       </div>
@@ -451,9 +465,12 @@ export default function Home() {
               Dallas/Fort Worth, Houston, San Antonio, and Austin….let’s get
               this party started.
             </p>
-            <div className="home-btn max-w-52 m-auto md:m-0 md:mb-10 xl:m-0">
-              See All Furniture
-            </div>
+
+            <Button
+              text="See All Furniture"
+              className="home-btn max-w-52 m-auto md:m-0 md:mb-10 xl:m-0"
+              href="/furniture"
+            />
           </div>
         </div>
       </div>
