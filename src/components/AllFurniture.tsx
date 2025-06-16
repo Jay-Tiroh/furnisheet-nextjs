@@ -124,7 +124,7 @@ const AllFurniture = () => {
     <div>
       <div className="flex flex-col p-10 gap-7 header w-full bg-light-grey">
         <h2 className=" font-semibold text-2xl">All Furniture</h2>
-        <div className="ribbon flex justify-between items-center w-full pr-10">
+        <div className="ribbon flex justify-between items-center w-full">
           <span className="items text-xs font-medium  text-very-grey">
             257 items
           </span>
