@@ -41,7 +41,7 @@ const categories = ({
         />
         <h2 className="font-medium text-lg ">Categories</h2>
         <Link
-          href={""}
+          href={"/furniture"}
           onClick={closeMenu}
           className="underline text-secondary"
         >
@@ -85,7 +85,7 @@ const packages = ({
         />
         <h2 className="font-medium text-lg">Packages</h2>
         <Link
-          href={""}
+          href={"/packages"}
           onClick={closeMenu}
           className="underline text-secondary"
         >
