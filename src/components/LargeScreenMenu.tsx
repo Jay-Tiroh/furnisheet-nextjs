@@ -29,7 +29,7 @@ const LargeScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
               href={""}
               className="flex items-end font-medium hover:text-secondary group gap-1"
             >
-              <Link href={""} onClick={closeMenu}>
+              <Link href={"/furniture"} onClick={closeMenu}>
                 Shop all furniture{" "}
               </Link>
               <ArrowRight className="inline bg-transparent size-4 group-hover:stroke-secondary " />
@@ -54,7 +54,7 @@ const LargeScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
               href={""}
               className="flex items-end font-medium hover:text-secondary group gap-1"
             >
-              <Link href={""} onClick={closeMenu}>
+              <Link href={"/packages"} onClick={closeMenu}>
                 Shop all packages{" "}
               </Link>
               <ArrowRight className="inline bg-transparent size-4 group-hover:stroke-secondary " />
