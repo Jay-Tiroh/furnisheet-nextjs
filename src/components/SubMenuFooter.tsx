@@ -18,8 +18,10 @@ import {
 
 import Link from "next/link";
 import React, { useState } from "react";
+import { useDialog } from "@/contexts/dialog-context";
 
-const SubMenuFooter = () => {
+const SubMenuFooter = ({ closeMenu }: { closeMenu: () => void }) => {
+  const { openDialog } = useDialog();
   const [lagos, setLagos] = useState<boolean>(true);
   return (
     <div className="flex flex-col gap-5  border-t border-mid-grey mt-5 p-5">
@@ -28,6 +30,7 @@ const SubMenuFooter = () => {
         <div className=" flex flex-col w-fit  ">
           <div className="p-3 border-b border-mid-grey   w-full">
             <Link
+              onClick={closeMenu}
               href="#"
               className="text-sm fill-fake-black hover:fill-secondary text-alt-grey hover:text-secondary flex items-center "
             >
@@ -37,6 +40,7 @@ const SubMenuFooter = () => {
           </div>
           <div className="p-3 border-b border-mid-grey   w-full">
             <Link
+              onClick={closeMenu}
               href="#"
               className="text-sm stroke-fake-black hover:stroke-secondary text-alt-grey hover:text-secondary flex items-center "
             >
@@ -46,11 +50,15 @@ const SubMenuFooter = () => {
           </div>
           <div className="p-3 border-b border-mid-grey   w-full">
             <Link
+              onClick={closeMenu}
               href="#"
               className="text-sm stroke-fake-black hover:stroke-secondary text-alt-grey hover:text-secondary flex items-center "
             >
-              <Sofa className="stroke-inherit inline size-4 mr-1" />
-              <span>Request Furniture</span>
+              <Sofa
+                className="stroke-inherit inline size-4 mr-1"
+                onClick={closeMenu}
+              />
+              <span onClick={openDialog}>Request Furniture</span>
             </Link>
           </div>
         </div>

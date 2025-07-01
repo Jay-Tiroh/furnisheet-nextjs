@@ -8,6 +8,7 @@ interface Package {
   installment: string;
   price: number;
   image: string;
+  href: string;
 }
 const Packages = () => {
   const packages: Package[] = [
@@ -16,20 +17,21 @@ const Packages = () => {
       installment: "N1,500/mo",
       price: 15000,
       image: "2-bedroom",
+      href: "2-bedroom",
     },
     {
       name: "3 - Bedroom Package",
-
       installment: "N1,500/mo",
       price: 13000,
       image: "3-bedroom",
+      href: "3-bedroom",
     },
     {
       name: "Self - Contain Package",
-
       installment: "N1,500/mo",
       price: 11000,
       image: "self-con",
+      href: "self-con",
     },
   ];
   return (
@@ -72,6 +74,7 @@ const Packages = () => {
                 <Button
                   className="btn flex items-center justify-center text-center tracking-wide  py-2 px-7 rounded-full  mt-3 lg:py-3 lg:px-10 cursor-pointer border-very-dark-blue border text-very-dark-blue font-semibold hover:text-white hover:bg-very-dark-blue transition-colors duration-150 ease-in-out"
                   text="Shop Now"
+                  href={`/packages/${item.href}`}
                 />
               </div>
             </div>

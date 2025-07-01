@@ -4,7 +4,39 @@ import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Button from "@/components/Button";
 
+interface Chair {
+  img: string;
+  name: string;
+  subscription: string;
+  price: string;
+}
 export default function Home() {
+  const chairItems: Chair[] = [
+    {
+      img: "/assets/images/swivel-chair.png",
+      name: "Ergonomic And Swivel Chairs (ESC)",
+      subscription: "N1,500/mo",
+      price: "N12,000 to buy",
+    },
+    {
+      img: "/assets/images/chair1.png",
+      name: "Comfy Couch, Grey Left Extended",
+      subscription: "N1,500/mo",
+      price: "N12,000 to buy",
+    },
+    {
+      img: "/assets/images/chair2.png",
+      name: "Comfy Couch, Grey Left Extended",
+      subscription: "N1,500/mo",
+      price: "N12,000 to buy",
+    },
+    {
+      img: "/assets/images/chair3.png",
+      name: "Comfy Couch, Grey Left Extended",
+      subscription: "N1,500/mo",
+      price: "N12,000 to buy",
+    },
+  ];
   return (
     <div className="space-y-20 w-full">
       {/* Hero Section */}
@@ -362,63 +394,20 @@ export default function Home() {
         <h2 className="font-semibold text-3xl text-center">
           Best Selling Products
         </h2>
-        <div className="container m-auto  gap-10 mb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-content-center place-items-center md:grid-flow-row ">
+        <div className="container m-auto  gap-10 mb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-content-center place-items-center md:grid-flow-row  items-start">
           {/* items */}
-          <div className="item  ">
-            <Image
-              width={200}
-              height={200}
-              src="/assets/images/swivel-chair.png?url"
-              alt=""
-            />
-            <div className="name mt-1">Ergonomic And Swivel Chairs (ESC)</div>
-            <div className="price">
-              <span className="font-semibold subscription">N1,500/mo</span>{" "}
-              &nbsp; N12,000 to buy
+          {chairItems.map((item, _) => (
+            <div className="item text-sm" key={_}>
+              <Image width={200} height={200} src={item.img} alt={item.name} />
+              <div className="name font-semibold mt-1">{item.name}</div>
+              <div className="price flex gap-2 ">
+                <span className="font-semibold subscription">
+                  {item.subscription}
+                </span>
+                <span> {item.price}</span>
+              </div>
             </div>
-          </div>
-
-          <div className="item ">
-            <Image
-              width={200}
-              height={200}
-              src="/assets/images/chair1.png?url"
-              alt=""
-            />
-            <div className="name mt-1">Comfy Couch, Grey Left Extended</div>
-            <div className="price">
-              <span className="font-semibold subscription">N1,500/mo</span>{" "}
-              &nbsp; N12,000 to buy
-            </div>
-          </div>
-
-          <div className="item ">
-            <Image
-              width={200}
-              height={200}
-              src="/assets/images/chair2.png?url"
-              alt=""
-            />
-            <div className="name mt-1">Comfy Couch, Grey Left Extended</div>
-            <div className="price">
-              <span className="font-semibold subscription">N1,500/mo</span>{" "}
-              &nbsp; N12,000 to buy
-            </div>
-          </div>
-
-          <div className="item">
-            <Image
-              src="/assets/images/chair3.png?url"
-              alt=""
-              width={200}
-              height={200}
-            />
-            <div className="name mt-1">Comfy Couch, Grey Left Extended</div>
-            <div className="price">
-              <span className="font-semibold subscription">N1,500/mo</span>{" "}
-              &nbsp; N12,000 to buy
-            </div>
-          </div>
+          ))}
         </div>
 
         <Button

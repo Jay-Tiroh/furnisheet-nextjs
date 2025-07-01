@@ -18,7 +18,7 @@ const SubMenu = ({
       {activeSubMenu === "categories"
         ? categories({ setSubMenuIsOpen, closeMenu })
         : packages({ setSubMenuIsOpen, closeMenu })}
-      <SubMenuFooter />
+      <SubMenuFooter closeMenu={closeMenu} />
     </div>
   );
 };

@@ -281,7 +281,8 @@
   /* content: "hey"; */
 }
 
-.quantity-dropdown::-webkit-scrollbar {
+.dropdown::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
   display: none;
 }
 

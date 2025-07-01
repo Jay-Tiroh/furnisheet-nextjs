@@ -11,6 +11,7 @@ import { ChevronDown } from "lucide-react";
 import Button from "./Button";
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
+import Link from "next/link";
 
 interface Furniture {
   name: string;
@@ -19,11 +20,13 @@ interface Furniture {
   price: number;
   image: string;
   category: string[];
+  productName: string;
 }
 const AllFurniture = () => {
   const furnitures: Furniture[] = [
     {
       name: "Ergonomic And Swivel Chairs(ESC)",
+      productName: "swivel-chair",
       stars: 4,
       installment: "N1,500/mo",
       price: 15000,
@@ -31,7 +34,8 @@ const AllFurniture = () => {
       category: ["Recommended"],
     },
     {
-      name: "Comfy Couch, Grey left extended",
+      name: "Comfy Chair, Grey with wooden arms",
+      productName: "comfy-chair",
       stars: 4,
       installment: "N1,500/mo",
       price: 13000,
@@ -39,7 +43,8 @@ const AllFurniture = () => {
       category: ["Best Selling"],
     },
     {
-      name: "Comfy Couch, Grey left extended",
+      name: "White Seat, Adjustable wooden legs",
+      productName: "white-seat",
       stars: 4,
       installment: "N1,500/mo",
       price: 11000,
@@ -48,6 +53,7 @@ const AllFurniture = () => {
     },
     {
       name: "Comfy Couch, Grey left extended",
+      productName: "comfy-couch",
       stars: 4,
       installment: "N1,500/mo",
       price: 25000,
@@ -55,7 +61,8 @@ const AllFurniture = () => {
       category: ["Best Selling", "Recommended"],
     },
     {
-      name: "Comfy Couch, Grey left extended",
+      name: "Office Chair, Black and adjustable",
+      productName: "office-chair",
       stars: 4,
       installment: "N1,500/mo",
       price: 15000,
@@ -63,7 +70,8 @@ const AllFurniture = () => {
       category: ["Recommended"],
     },
     {
-      name: "Comfy Couch, Grey left extended",
+      name: "Nice Cabinet, Grey left extended",
+      productName: "nice-cabinet",
       stars: 4,
       installment: "N1,500/mo",
       price: 20000,
@@ -71,7 +79,8 @@ const AllFurniture = () => {
       category: [],
     },
     {
-      name: "Comfy Couch, Grey left extended",
+      name: "Some Kind Of Furniture, I guess...",
+      productName: "random-furniture",
       stars: 4,
       installment: "N1,500/mo",
       price: 17000,
@@ -79,6 +88,7 @@ const AllFurniture = () => {
       category: [],
     },
   ];
+
   const [selected, setSelected] = useState<string | null>("All");
   // State to hold the sorted furniture items
   const [sorted, setSorted] = useState(furnitures);
@@ -126,7 +136,7 @@ const AllFurniture = () => {
         <h2 className=" font-semibold text-2xl">All Furniture</h2>
         <div className="ribbon flex justify-between items-center w-full">
           <span className="items text-xs font-medium  text-very-grey">
-            257 items
+            258 items
           </span>
 
           <DropdownMenu>
@@ -197,31 +207,35 @@ const AllFurniture = () => {
           </DropdownMenu>
         </div>
       </div>
-      <div className="content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 p-5 place-items-center py-10 items-start ">
+      <div className="content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 p-5 place-items-center py-10 items-stretch ">
         {sorted.map((item: Furniture, i: number) => (
-          <div className="item  " key={i}>
-            <AspectRatio ratio={1} className="w-full">
-              <Image
-                width={700}
-                height={700}
-                src={`/assets/images/${item.image}.png`}
-                alt={item.name}
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, (min-width: 769px) 66vw"
-                className="hover:cursor-pointer w-full object-cover"
-              />
-            </AspectRatio>
-            <div className="text-sm mt-1 font-medium">{item.name}</div>
-            <div className="stars">
-              <span className="text-secondary">★ ★ ★ ★ ☆</span>
+          <Link href={`/furniture/product/${item.productName}`} key={i}>
+            <div className="item h-full flex flex-col ">
+              <AspectRatio ratio={1} className=" w-full">
+                <Image
+                  width={700}
+                  height={700}
+                  src={`/assets/images/${item.image}.png`}
+                  alt={item.name}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (min-width: 769px) 66vw"
+                  className="hover:cursor-pointer w-full object-cover"
+                />
+              </AspectRatio>
+              <div className="flex flex-col">
+                <div className="text-sm mt-1 font-medium">{item.name}</div>
+                <div className="stars">
+                  <span className="text-secondary">★ ★ ★ ★ ☆</span>
+                </div>
+                <div className="price text-sm">
+                  <span className="font-semibold subscription ">
+                    {item.installment}
+                  </span>
+                  &nbsp; {`${item.price} to buy`}
+                </div>
+              </div>
             </div>
-            <div className="price text-sm">
-              <span className="font-semibold subscription ">
-                {item.installment}
-              </span>
-              &nbsp; {`${item.price} to buy`}
-            </div>
-          </div>
+          </Link>
         ))}
 
         {/* make a request */}

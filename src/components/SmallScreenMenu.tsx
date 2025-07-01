@@ -9,6 +9,7 @@ import SubMenu from "./SubMenu";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import SubMenuFooter from "./SubMenuFooter";
+import { useMenu } from "@/contexts/menu-context";
 
 const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const [activeSubMenu, setActiveSubMenu] = useState<string>("categories");
@@ -17,6 +18,7 @@ const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
     setActiveSubMenu(subMenu);
     setSubMenuIsOpen(true);
   };
+  const { toggle, triggerRef } = useMenu();
   return subMenuIsOpen ? (
     <SubMenu
       activeSubMenu={activeSubMenu}
@@ -67,7 +69,7 @@ const SmallScreenMenu = ({ closeMenu }: { closeMenu: () => void }) => {
           </Link>
         </div>
       </div>
-      <SubMenuFooter />
+      <SubMenuFooter closeMenu={closeMenu} />
     </div>
   );
 };

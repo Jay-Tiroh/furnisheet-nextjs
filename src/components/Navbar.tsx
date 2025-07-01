@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { useSidebar } from "../contexts/sidebar";
 import Menu from "./Menu";
 import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
 import { Input } from "./ui/input";
@@ -26,6 +27,7 @@ import {
   ShoppingCart,
   UserCircle2,
 } from "lucide-react";
+import { useMenu } from "@/contexts/menu-context";
 
 function useToggle(defaultValue?: boolean) {
   const [toggle, setToggle] = useState(() =>
@@ -67,7 +69,11 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const loggedIn: boolean = true; // Replace with actual authentication logic
+  const loggedIn: boolean = false; // Replace with actual authentication logic
+
+  const { open } = useSidebar();
+
+  const { isOpen, toggle, close } = useMenu();
   return (
     <div className=" sticky top-0 z-50 bg-white w-full ">
       <div
@@ -77,20 +83,26 @@ const NavBar = () => {
       >
         {/* menu-btn */}
 
-        <DropdownMenu>
-          <DropdownMenuTrigger className="cursor-pointer border-0 outline-none focus:outline-none focus:ring-0 active:outline-none active:ring-0">
-            <span className="menu-btn lg:hidden cursor-pointer justify-self-start">
+        <DropdownMenu open={isOpen} onOpenChange={(open) => !open && close()}>
+          <DropdownMenuTrigger
+            asChild
+            className="cursor-pointer border-0 outline-none focus:outline-none focus:ring-0 active:outline-none active:ring-0"
+          >
+            <span
+              className="menu-btn lg:hidden cursor-pointer justify-self-start"
+              onClick={toggle}
+            >
               <MenuIcon className=" size-8 stroke-fake-black hover:stroke-secondary" />
             </span>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="!w-screen">
-            <Menu closeMenu={closeMenu} />
+            <Menu closeMenu={close} />
           </DropdownMenuContent>
         </DropdownMenu>
 
         {/* navlinks */}
         <div className="nav-links  space-x-5 items-center text-sm  hidden lg:flex w-1/3 justify-between font-semibold">
-          <Link href="/all" className="nav-link">
+          <Link href="/furniture" className="nav-link">
             <span>Furniture</span>
             <span className="line bg-secondary h-4"></span>
           </Link>
@@ -162,7 +174,7 @@ const NavBar = () => {
               <DropdownMenuGroup>
                 {loggedIn && (
                   <DropdownMenuItem className="cursor-pointer">
-                    <Link href={""}>Account Details</Link>
+                    <Link href={"/account/profile"}>Account Details</Link>
                   </DropdownMenuItem>
                 )}
                 {loggedIn ? (
@@ -171,7 +183,7 @@ const NavBar = () => {
                   </DropdownMenuItem>
                 ) : (
                   <DropdownMenuItem className="cursor-pointer">
-                    Log In
+                    <Link href={"/login"}>Log In</Link>
                   </DropdownMenuItem>
                 )}
               </DropdownMenuGroup>
@@ -205,7 +217,7 @@ const NavBar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <span className="cart">
+          <span className="cart" onClick={open}>
             <ShoppingCart className="size-5 stroke-black hover:stroke-secondary cursor-pointer" />
           </span>
         </div>
