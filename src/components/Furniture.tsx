@@ -293,8 +293,8 @@ const Furniture = ({ product }: { product: string }) => {
           {/* Payment Plan */}
           <div className="payment-plan space-y-5">
             <h2 className="text-lg font-semibold">Choose how you want it</h2>
-            {plans.map((plan) => (
-              <div className="plan" key={plan.id} data-id={plan.id}>
+            {plans.map((plan, index) => (
+              <div className="plan" key={index} data-id={plan.id}>
                 {!plan.isSelected && (
                   <div
                     className="plan-div"
@@ -365,9 +365,9 @@ const Furniture = ({ product }: { product: string }) => {
                           >
                             <div className=" quantity-dropdown w-full flex flex-col justify-start items-center h-48 bg-white shadow-2xl rounded-b-md ">
                               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
-                                (item) => (
+                                (item, index) => (
                                   <DropdownMenuItem
-                                    key={item}
+                                    key={index}
                                     className={`option w-full text-center ${
                                       item === plan.quantity ? "selected" : ""
                                     }`}
@@ -405,9 +405,9 @@ const Furniture = ({ product }: { product: string }) => {
                           >
                             <div className=" period-dropdown w-full flex flex-col justify-start items-center h-48 bg-white shadow-2xl rounded-b-md  ">
                               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
-                                (item) => (
+                                (item, index) => (
                                   <DropdownMenuItem
-                                    key={item}
+                                    key={index}
                                     className={`option w-full text-center ${
                                       item === plan.period ? "selected" : ""
                                     }`}
@@ -507,8 +507,8 @@ const Furniture = ({ product }: { product: string }) => {
           </div>
         ) : (
           <div className="grid grid-cols-3 lg:grid-cols-4 place-items-center p-5 gap-4 w-full items-start">
-            {chairItems.map((chair) => (
-              <div className="item flex flex-col gap-3 w-full">
+            {chairItems.map((chair, index) => (
+              <div className="item flex flex-col gap-3 w-full" key={index}>
                 <Image
                   src={chair.img}
                   alt={chair.name}

@@ -1,12 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
 
 interface Plan {
   amount: number;
@@ -50,15 +43,6 @@ const Payment = () => {
     );
   };
 
-  const updatePlanProperty = (id: number, value: string): void => {
-    setPlans((prevPlans) =>
-      prevPlans.map((plan) =>
-        plan.id === id ? { ...plan, location: value } : plan
-      )
-    );
-    console.log(id, plans);
-  };
-
   return (
     <div className="bg-white p-5 space-y-5  rounded-md">
       <div className=" flex flex-col gap-1">
@@ -67,8 +51,8 @@ const Payment = () => {
           Please select a payment method
         </p>
       </div>
-      {plans.map((plan) => (
-        <div className="plan" key={plan.id} data-id={plan.id}>
+      {plans.map((plan, index) => (
+        <div className="plan" key={index} data-id={plan.id}>
           {!plan.isSelected && (
             <div
               className="plan-div"

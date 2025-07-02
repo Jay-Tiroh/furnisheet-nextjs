@@ -31,15 +31,6 @@ interface Chair {
   price: string;
 }
 
-interface Furniture {
-  name: string;
-  stars: number;
-  installment: string;
-  price: number;
-  image: string;
-  category: string[];
-  productName: string;
-}
 interface Package {
   name: string;
   installment: string;
@@ -73,72 +64,6 @@ const Package = ({ product }: { product: string }) => {
       name: "Comfy Couch",
       subscription: "N1,500/mo",
       price: "N12,000 to buy",
-    },
-  ];
-
-  const furnitures: Furniture[] = [
-    {
-      name: "Ergonomic And Swivel Chairs(ESC)",
-      productName: "swivel-chair",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 15000,
-      image: "swivel-chair",
-      category: ["Recommended"],
-    },
-    {
-      name: "Comfy Chair, Grey with wooden arms",
-      productName: "comfy-chair",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 13000,
-      image: "chair1",
-      category: ["Best Selling"],
-    },
-    {
-      name: "White Seat, Adjustable wooden legs",
-      productName: "white-seat",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 11000,
-      image: "chair2",
-      category: ["Best Selling"],
-    },
-    {
-      name: "Comfy Couch, Grey left extended",
-      productName: "comfy-couch",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 25000,
-      image: "chair3",
-      category: ["Best Selling", "Recommended"],
-    },
-    {
-      name: "Office Chair, Black and adjustable",
-      productName: "office-chair",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 15000,
-      image: "chair4",
-      category: ["Recommended"],
-    },
-    {
-      name: "Nice Cabinet, Grey left extended",
-      productName: "nice-cabinet",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 20000,
-      image: "chair5",
-      category: [],
-    },
-    {
-      name: "Some Kind Of Furniture, I guess...",
-      productName: "random-furniture",
-      stars: 4,
-      installment: "N1,500/mo",
-      price: 17000,
-      image: "chair6",
-      category: [],
     },
   ];
 
@@ -345,8 +270,8 @@ const Package = ({ product }: { product: string }) => {
           {!isSmallScreen && (
             <div className="payment-plan space-y-5 ">
               <h2 className="text-lg font-semibold">Choose how you want it</h2>
-              {plans.map((plan) => (
-                <div className="plan" key={plan.id} data-id={plan.id}>
+              {plans.map((plan, index) => (
+                <div className="plan" key={index} data-id={plan.id}>
                   {!plan.isSelected && (
                     <div
                       className="plan-div"
@@ -492,8 +417,8 @@ const Package = ({ product }: { product: string }) => {
       {/* Payment Plan */}
       <div className="payment-plan space-y-5 md:hidden">
         <h2 className="text-lg font-semibold">Choose how you want it</h2>
-        {plans.map((plan) => (
-          <div className="plan" key={plan.id} data-id={plan.id}>
+        {plans.map((plan, index) => (
+          <div className="plan" key={index} data-id={plan.id}>
             {!plan.isSelected && (
               <div
                 className="plan-div"
@@ -564,9 +489,9 @@ const Package = ({ product }: { product: string }) => {
                       >
                         <div className=" quantity-dropdown w-full flex flex-col justify-start items-center h-48 bg-white shadow-2xl rounded-b-md ">
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
-                            (item) => (
+                            (item, index) => (
                               <DropdownMenuItem
-                                key={item}
+                                key={index}
                                 className={`option w-full text-center ${
                                   item === plan.quantity ? "selected" : ""
                                 }`}
@@ -600,9 +525,9 @@ const Package = ({ product }: { product: string }) => {
                       >
                         <div className=" period-dropdown w-full flex flex-col justify-start items-center h-48 bg-white shadow-2xl rounded-b-md  ">
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
-                            (item) => (
+                            (item, index) => (
                               <DropdownMenuItem
-                                key={item}
+                                key={index}
                                 className={`option w-full text-center ${
                                   item === plan.period ? "selected" : ""
                                 }`}
@@ -696,8 +621,8 @@ const Package = ({ product }: { product: string }) => {
           </div>
         ) : (
           <div className="grid grid-cols-3 lg:grid-cols-4 place-items-center p-5 gap-4 w-full items-start">
-            {chairItems.map((chair) => (
-              <div className="item flex flex-col gap-3 w-full">
+            {chairItems.map((chair, index) => (
+              <div className="item flex flex-col gap-3 w-full" key={index}>
                 <Image
                   src={chair.img}
                   alt={chair.name}

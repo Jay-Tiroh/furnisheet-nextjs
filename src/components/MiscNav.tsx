@@ -1,6 +1,5 @@
 "use client";
 import { useSidebar } from "@/contexts/sidebar";
-import Link from "next/link";
 import React from "react";
 
 const MiscNav = () => {

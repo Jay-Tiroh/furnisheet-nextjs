@@ -1,4 +1,3 @@
-import Furniture from "@/components/Furniture";
 import NavigationTab from "@/components/NavigationTab";
 import Package from "@/components/Package";
 import React from "react";

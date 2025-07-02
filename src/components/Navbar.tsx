@@ -29,34 +29,11 @@ import {
 } from "lucide-react";
 import { useMenu } from "@/contexts/menu-context";
 
-function useToggle(defaultValue?: boolean) {
-  const [toggle, setToggle] = useState(() =>
-    typeof defaultValue === "boolean" ? defaultValue : false
-  );
-
-  const handleToggle = () => {
-    setToggle((prev) => !prev);
-  };
-
-  const handleToggleValue = (val: boolean) => {
-    setToggle(val);
-  };
-
-  return {
-    toggle,
-    handleToggle,
-    handleToggleValue,
-  };
-}
-
 const NavBar = () => {
   const logo: string = "/assets/images/furnisheet-logo.png?url";
   const [lagos, setLagos] = useState(true);
-  const toggleMenu = useToggle();
+
   const [hasShadow, setHasShadow] = useState<boolean>(false);
-  const closeMenu = (): void => {
-    toggleMenu.handleToggleValue(false);
-  };
 
   // Toggle navigation menu (mobile view)
 
