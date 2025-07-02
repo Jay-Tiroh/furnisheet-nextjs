@@ -1,5 +1,8 @@
 "use client";
 import AccountDetails from "@/components/AccountDetails";
+import OrderHistory from "@/components/OrderHistory";
+import PaymentMethods from "@/components/PaymentMethods";
+import Subscriptions from "@/components/Subscriptions";
 import React, { useState } from "react";
 interface Profile {
   firstname: string;
@@ -13,12 +16,13 @@ interface Profile {
 
 const profile = () => {
   const [active, setActive] = useState<string>("details");
+
   return (
-    <div className="m-10">
-      <div className="grid md:grid-cols-6  gap-10 justify-between ">
-        <div className=" md:col-span-2 lg:col-span-1 text-sm flex flex-col h-full justify-between w-full ">
+    <div className=" p-5 md:p-10 w-full">
+      <div className="grid md:grid-cols-6  gap-10  ">
+        <div className=" md:col-span-2 lg:col-span-1 text-sm flex flex-col h-full justify-between w-full max-h-[70svh] ">
           <div className="">
-            <div className="profile  font-medium py-5 border-b-2 border-mid-grey mb-5 flex items-center flex-col">
+            <div className="profile  font-medium py-5 border-b-2 border-mid-grey mb-5 flex items-center md:items-start flex-col">
               <div className="size-40 overflow-clip rounded-sm mb-2">
                 <img
                   src="/assets/images/jethro.jpg"
@@ -28,7 +32,7 @@ const profile = () => {
               </div>
               <span className="name ">Jethro Uchechi</span>
             </div>
-            <div className="tabs flex flex-col gap-2 font-medium">
+            <div className="tabs flex flex-col gap-2 font-medium ">
               <span
                 className={`hover:text-secondary cursor-pointer ${
                   active === "details" ? "text-secondary" : ""
@@ -41,13 +45,13 @@ const profile = () => {
               </span>
               <span
                 className={`hover:text-secondary cursor-pointer ${
-                  active === "orders" ? "text-secondary" : ""
+                  active === "history" ? "text-secondary" : ""
                 }`}
                 onClick={() => {
-                  setActive("orders");
+                  setActive("history");
                 }}
               >
-                My Orders
+                Order History
               </span>
               <span
                 className={`hover:text-secondary cursor-pointer ${
@@ -61,13 +65,13 @@ const profile = () => {
               </span>
               <span
                 className={`hover:text-secondary cursor-pointer ${
-                  active === "return" ? "text-secondary" : ""
+                  active === "subscriptions" ? "text-secondary" : ""
                 }`}
                 onClick={() => {
-                  setActive("return");
+                  setActive("subscriptions");
                 }}
               >
-                Return Items
+                Subscriptions
               </span>
             </div>
           </div>
@@ -76,9 +80,12 @@ const profile = () => {
           </span>
         </div>
 
-        <div className="page md:col-span-4 lg:col-span-5 ">
-          <div className="md:w-[85%] ml-auto">
-            <AccountDetails />
+        <div className="page md:col-span-4 lg:col-span-5 w-full">
+          <div className="lg:w-[85%] md:ml-auto w-full">
+            {active === "details" && <AccountDetails />}
+            {active === "history" && <OrderHistory />}
+            {active === "payment" && <PaymentMethods />}
+            {active === "subscriptions" && <Subscriptions />}
           </div>
         </div>
       </div>

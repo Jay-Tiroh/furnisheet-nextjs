@@ -1,6 +1,5 @@
 "use client";
 import Button from "@/components/Button";
-import Link from "next/link";
 import React, { useState } from "react";
 import {
   Dialog,
@@ -11,7 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useDialog } from "@/contexts/dialog-context";
 
 const login = () => {
   //   const { isOpen, closeDialog, toggleDialog } = useDialog();
