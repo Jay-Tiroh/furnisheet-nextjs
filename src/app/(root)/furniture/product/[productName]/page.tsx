@@ -1,3 +1,5 @@
+// src/app/(root)/furniture/product/[productName]/page.tsx
+
 import Furniture from "@/components/Furniture";
 import NavigationTab from "@/components/NavigationTab";
 import React from "react";
@@ -8,7 +10,7 @@ type Props = {
   };
 };
 
-const ProductName = ({ params }: Props) => {
+export default function ProductName({ params }: Props) {
   const { productName } = params;
 
   return (
@@ -24,6 +26,4 @@ const ProductName = ({ params }: Props) => {
       <Furniture product={productName} />
     </>
   );
-};
-
-export default ProductName;
+}
