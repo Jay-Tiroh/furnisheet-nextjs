@@ -159,17 +159,19 @@ const Furniture = ({ product }: { product: string }) => {
     value: number,
     property: string
   ): void => {
-    property === "period"
-      ? setPlans((prevPlans) =>
-          prevPlans.map((plan) =>
-            plan.id === id ? { ...plan, period: value } : plan
-          )
+    if (property === "period") {
+      setPlans((prevPlans) =>
+        prevPlans.map((plan) =>
+          plan.id === id ? { ...plan, period: value } : plan
         )
-      : setPlans((prevPlans) =>
-          prevPlans.map((plan) =>
-            plan.id === id ? { ...plan, quantity: value } : plan
-          )
-        );
+      );
+    } else {
+      setPlans((prevPlans) =>
+        prevPlans.map((plan) =>
+          plan.id === id ? { ...plan, quantity: value } : plan
+        )
+      );
+    }
   };
 
   const ellipse: string = "/assets/images/ellipse.svg?url";
