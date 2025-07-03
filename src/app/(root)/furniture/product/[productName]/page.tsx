@@ -4,13 +4,14 @@ import Furniture from "@/components/Furniture";
 import NavigationTab from "@/components/NavigationTab";
 import React from "react";
 
-type Props = {
+interface PageProps {
   params: {
     productName: string;
   };
-};
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
-export default function ProductName({ params }: Props) {
+export default function ProductName({ params }: PageProps) {
   const { productName } = params;
 
   return (
